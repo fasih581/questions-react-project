@@ -17,8 +17,7 @@ exports.RegUserPost = asyncHandler(async (req, res) => {
     user.save().then((data) => {
       res.status(201).json({regId: data._id});
     });
-
-    res.status(201).json(user);
+;
   } catch (error) {
     console.log(error);
   }

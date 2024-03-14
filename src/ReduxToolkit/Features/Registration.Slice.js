@@ -9,8 +9,8 @@ export const RegUser = createAsyncThunk("RegUser", async (data) => {
       "http://localhost:8000/api/users/register",
       data
     );
-    
-    window.localStorage.setItem('regId', response.data.regId)
+    window.localStorage.setItem("regId", response.data.regId);
+    console.log("regId", response.data.regId);
     console.log("response login data:", response);
     return response.data;
   } catch (error) {
@@ -29,7 +29,6 @@ const Slice = createSlice({
     error: false,
   },
   extraReducers: (builder) => {
-
     // loginUser
     builder.addCase(RegUser.pending, (state) => {
       state.isLoading = true;
