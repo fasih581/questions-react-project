@@ -23,7 +23,7 @@ exports.RegUserPost = asyncHandler(async (req, res) => {
   }
 });
 
-// // POST: post the Blog details
+
 // exports.postBlog = asyncHandler(async (req, res) => {
 //   const data = new blogModel({
 //     blogImg: req.body.blogImg,
