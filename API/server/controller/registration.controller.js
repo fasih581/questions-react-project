@@ -8,12 +8,6 @@ exports.RegUserPost = asyncHandler(async (req, res) => {
   const { name, email } = req.body;
 
   try {
-    // // all the data should exists
-    // if (!name || !email) {
-    //   res.status(400);
-    //   throw new Error("All fields are mandatory!");
-    // }
-
     // save the user in DB
     const user = new RegModel({
       name,
@@ -21,7 +15,7 @@ exports.RegUserPost = asyncHandler(async (req, res) => {
     });
 
     user.save().then((data) => {
-      res.status(201).json(data);
+      res.status(201).json({regId: data._id});
     });
 
     res.status(201).json(user);

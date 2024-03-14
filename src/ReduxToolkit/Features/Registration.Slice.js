@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 // Registration User
 export const RegUser = createAsyncThunk("RegUser", async (data) => {
@@ -10,7 +9,8 @@ export const RegUser = createAsyncThunk("RegUser", async (data) => {
       "http://localhost:8000/api/users/register",
       data
     );
-    Cookies.set("userId", response.data.regId);
+    
+    window.localStorage.setItem('regId', response.data.regId)
     console.log("response login data:", response);
     return response.data;
   } catch (error) {
